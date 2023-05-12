@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Maven Build'){
             agent {
-                docker { image 'maven:3.8.1-adoptjdk-11'}
+                docker { image 'maven:3-eclipse-temurin-11-alpine'}
             }
             steps{
               sh 'mvn --version'

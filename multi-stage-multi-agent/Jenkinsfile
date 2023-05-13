@@ -5,6 +5,9 @@ pipeline{
             agent {
                 docker { image 'maven:3.8.1-adoptopenjdk-11'}
             }
+            options{
+                timeout(time: 2,unit: "MINUTES")
+            }
             steps{
               sh 'mvn --version'
               sh 'java --version'
@@ -14,6 +17,9 @@ pipeline{
         stage('Node Build'){
             agent {
                 docker { image 'node:16-alpine'}
+            }
+            options{
+                timeout(time: 1,unit: "MINUTES")
             }
             steps{
               sh 'node --version'
